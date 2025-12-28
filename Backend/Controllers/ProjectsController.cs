@@ -38,7 +38,7 @@ namespace ProjectManagementAPI.Controllers
             
 
 
-            if (UserEmail == null) return Unauthorized();
+           // if (UserEmail == null) return Unauthorized();  // commenting temporirily
 
 
             const string cacheKey = "projects:all";
@@ -106,7 +106,7 @@ namespace ProjectManagementAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProject(Project project)
         {
-            if (UserEmail == null) return Unauthorized();
+            //if (UserEmail == null) return Unauthorized();
 
             await _mongoService.Projects.InsertOneAsync(project);
 
@@ -147,7 +147,7 @@ namespace ProjectManagementAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(Guid id)
         {
-            if (UserEmail == null) return Unauthorized();
+           // if (UserEmail == null) return Unauthorized();
 
             var result = await _mongoService.Projects.DeleteOneAsync(p => p.Id == id);
 

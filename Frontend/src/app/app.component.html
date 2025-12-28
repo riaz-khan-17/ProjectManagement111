@@ -134,7 +134,7 @@
                 <select [(ngModel)]="projectForm.assignedUserId" name="assignedUserId" class="form-select">
                 <option value="">-- Select User --</option>
                 <option *ngFor="let user of users" [value]="user.Id">
-                    {{ user.Email }}
+                   {{ user.Name }} (  {{ user.Email }} )
                 </option>
                 </select>
 

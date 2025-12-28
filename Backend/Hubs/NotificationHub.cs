@@ -65,6 +65,8 @@ namespace ProjectManagementAPI.Hubs
             await _redisService.SetAsync(cacheKey, cached, TimeSpan.FromMinutes(1));
 
 
+
+            //send the message to the group based on projectId
             await Clients.Group($"project-{projectId}")
                          .SendAsync("ReceiveProjectMessage",  senderName, message, projectId );
 
